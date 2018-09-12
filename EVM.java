@@ -1,0 +1,47 @@
+import java.util.Scanner;
+public class Voter{
+
+	public static void main(String[] args){
+		Scanner sc=new Scanner(System.in);
+		EVM r=new EVM();
+		while(true){
+			try
+			{
+				System.out.print("\nEnter the name  :  ");
+				r.setName(sc.next());
+				System.out.print("\nEnter the age       : ");
+				r.setAge(sc.nextInt());
+				r.currentage();
+			}
+			catch(IllegalArgumentException e){
+				System.out.prntln(e.getMessage());
+			}
+		}
+}
+
+class EVM{
+	private int age;
+	private String name;
+	public void setAge(int age){
+		if ((age<18)||(age>110)){
+			throw new IllegalArgumentException(name+" u r not allow for voting , age should be in 18 " +"to 110 to vote");
+		}
+		this.age=age;
+	}
+	public void setName(String name){
+		this.name=name;
+	}
+	public String getName(){
+		return name;
+	}
+	public int getAge(){
+		return age;
+	}
+	public void currentage(){
+		if(age>=18){
+			System.out.println(name+" u r allow for vote According to ECI go janseva collect ur" +" vid after 7  days ");
+		}
+	}
+}
+}
+
